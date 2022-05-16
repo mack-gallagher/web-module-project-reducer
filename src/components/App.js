@@ -7,6 +7,8 @@ import CalcButton from './CalcButton';
 
 import reducer, { initialState } from '../reducers/index.js';
 
+import { addOne, ADD_ONE } from '../actions/index.js';
+
 function App() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -21,10 +23,10 @@ function App() {
         <div className="col-md-12 d-flex justify-content-center">
           <form name="Cal">
             
-            <TotalDisplay value={0}/>
+            <TotalDisplay value={state.total}/>
             <div className="row details">
-              <span id="operation"><b>Operation:</b> X</span>
-              <span id="memory"><b>Memory:</b> 0</span>
+              <span id="operation"><b>Operation:</b> {state.operation}</span>
+              <span id="memory"><b>Memory:</b> {state.memory}</span>
             </div>
             
             <div className="row">
@@ -34,7 +36,7 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={1}/>
+              <CalcButton onClick={() => dispatch({type: ADD_ONE})} value={1}/>
               <CalcButton value={2}/>
               <CalcButton value={3}/>
             </div>
