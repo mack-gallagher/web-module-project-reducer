@@ -12,7 +12,13 @@ import { applyNumber,
          changeOperation, 
          CHANGE_OPERATION,
          clearDisplay,
-         CLEAR_DISPLAY
+         CLEAR_DISPLAY,
+         memWrite,
+         MEM_WRITE,
+         memRead,
+         MEM_READ,
+         memClear,
+         MEM_CLEAR,
          } from '../actions/index.js';
 
 function App() {
@@ -46,9 +52,9 @@ function App() {
             </div>
             
             <div className="row">
-              <CalcButton value={"M+"} />
-              <CalcButton value={"MR"}/>
-              <CalcButton value={"MC"}/>
+              <CalcButton value={"M+"} onClick={ () => dispatch(memWrite()) } />
+              <CalcButton value={"MR"} onClick={ () => dispatch(memRead()) } />
+              <CalcButton value={"MC"} onClick={ () => dispatch(memClear()) } />
             </div>
 
             <div className="row">
