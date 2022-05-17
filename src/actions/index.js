@@ -3,6 +3,8 @@ export const ADD_ONE = "ADD_ONE";
 export const APPLY_NUMBER = "APPLY_NUMBER";
 export const CHANGE_OPERATION = "CHANGE_OPERATION";
 
+export const CALCULATE = "CALCULATE";
+
 export const CLEAR_DISPLAY = "CLEAR_DISPLAY";
 
 export const MEM_WRITE = "MEM_WRITE";
@@ -19,6 +21,10 @@ export const applyNumber = (number) => {
 
 export const changeOperation = (operation) => {
     return({type:CHANGE_OPERATION, payload:operation});
+}
+
+export const calculate = (number) => {
+    return ({type:CALCULATE, payload: number });
 }
 
 export const clearDisplay = () => {

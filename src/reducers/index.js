@@ -6,6 +6,7 @@ import {
   MEM_WRITE,
   MEM_READ,
   MEM_CLEAR,
+  CALCULATE
   } from './../actions';
 
 export const initialState = {
@@ -25,6 +26,10 @@ const calculateResult = (num1, num2, operation) => {
     }
 }
 
+const addToDisplay = (number, digit) => {
+  return 10*number + digit;
+}
+
 const reducer = (state, action) => {
     switch(action.type) {
         case(ADD_ONE):
@@ -36,13 +41,20 @@ const reducer = (state, action) => {
         case(APPLY_NUMBER):
             return ({ 
                 ...state, 
-                total: calculateResult(state.total, action.payload, state.operation)
+                total: addToDisplay(state.total, action.payload)
+            });
+        case(CALCULATE):
+            return ({
+                ...state,
+                total: calculateResult(state.memory, action.payload, state.operation)
             });
         
         case(CHANGE_OPERATION):
             return ({
                 ...state,
-                operation: action.payload
+                operation: action.payload,
+                memory: state.total,
+                total: 0,
             });
         case(CLEAR_DISPLAY):
             return ({

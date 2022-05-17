@@ -11,6 +11,8 @@ import { applyNumber,
          APPLY_NUMBER, 
          changeOperation, 
          CHANGE_OPERATION,
+         calculate,
+         CALCULATE,
          clearDisplay,
          CLEAR_DISPLAY,
          memWrite,
@@ -75,10 +77,18 @@ function App() {
               <CalcButton value={9} onClick={ () => handleNumberClick(9) } />
             </div>
 
+            <div className="row ce_button">
+              <CalcButton value={"0"} onClick={ () => handleNumberClick(0) } />
+            </div>
+
             <div className="row">
               <CalcButton value={"+"} onClick={ () => handleOpChange("+") } />
               <CalcButton value={"*"} onClick={ () => handleOpChange("*") } />
               <CalcButton value={"-"} onClick={ () => handleOpChange("-") } />
+            </div>
+
+            <div className="row ce_button">
+              <CalcButton value={"="} onClick={ () => dispatch(calculate(state.total)) } />
             </div>
 
             <div className="row ce_button">

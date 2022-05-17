@@ -4,7 +4,7 @@ body {
     background: #574b90;
     font-family: 'Lato', sans-serif;
   }
-  
+ 
   .col-xs-4 {
     padding: 0;
   }
@@ -54,6 +54,7 @@ body {
   .ce_button .col-xs-4 .btn{
     width: 100% !important;
   }
+
   
   .btn-primary:focus,
   .btn-primary,
@@ -87,3 +88,4 @@ body {
     margin-right: auto !important;
     margin-left: auto !important;
   }
+
